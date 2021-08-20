@@ -1,0 +1,27 @@
+
+################################################################
+######
+######    delay section
+######
+################################################################
+
+### send
+# 返回：
+POST http://127.0.0.1:12900/api/v1/delay/send
+Content-Type: application/json;charset=utf-8
+
+{
+    "delay": 10,
+    "body": "{\"id\":\"2413242134\",\"name\":\"ssss\"}",
+    "callback": "http://127.0.0.1:12900/api/v1/delay/callback"
+}
+
+### send
+# 返回：
+POST http://127.0.0.1:12900/api/v1/delay/callback
+Content-Type: application/json;charset=utf-8
+
+{
+    "code": "code01",
+    "name": "产品１"
+}
