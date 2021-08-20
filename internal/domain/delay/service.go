@@ -53,10 +53,14 @@ func DoneDelay(msg string) error {
 
 	var delaymsg types.DelayMsg
 	err := json.Unmarshal([]byte(msg), &delaymsg)
+	if err != nil {
+		logrus.Println("消息解析错误")
+		return err
+	}
 
 	url := delaymsg.Callback
 
-	req, err := http.NewRequest("POST", url, bytes.NewBuffer([]byte(delaymsg.Body)))
+	req, err := http.NewRequest("POST", url, bytes.NewBuffer([]byte(msg)))
 	req.Header.Set("Content-Type", "application/json;charset=UTF-8")
 
 	client := &http.Client{}

@@ -6,14 +6,18 @@
 ################################################################
 
 ### send
+# delay int 单位秒
+# callback 回调地址
+# body 回调正文，json字符串
 # 返回：
 POST http://127.0.0.1:12900/api/v1/delay/send
 Content-Type: application/json;charset=utf-8
 
 {
+    "id": "kdfjkajdkfasf001",
     "delay": 10,
-    "body": "{\"id\":\"2413242134\",\"name\":\"ssss\"}",
-    "callback": "http://127.0.0.1:12900/api/v1/delay/callback"
+    "callback": "http://127.0.0.1:12900/api/v1/delay/callback",
+    "uuid": "djdkfjdk"
 }
 
 ### send
