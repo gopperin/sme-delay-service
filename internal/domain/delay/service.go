@@ -2,30 +2,62 @@ package delay
 
 import (
 	"bytes"
+	"context"
 	"encoding/json"
 	"io/ioutil"
 	"net/http"
 	"time"
 
+	"github.com/go-redis/redis/v8"
 	nsq "github.com/nsqio/go-nsq"
 	logrus "github.com/sirupsen/logrus"
 
+	myconfig "sme-delay-service/internal/config"
 	"sme-delay-service/internal/domain/types"
 )
+
+var ctx = context.Background()
 
 // Service Service
 type Service struct {
 	Producer *nsq.Producer
+	Redis    *redis.Client
 }
 
 // ProvideService ProvideService
-func ProvideService(p *nsq.Producer) Service {
-	return Service{Producer: p}
+func ProvideService(p *nsq.Producer, redis *redis.Client) Service {
+	return Service{Producer: p, Redis: redis}
 }
 
 // Publish Publish
 func (s *Service) Publish(topic string, body []byte) error {
 	return s.Producer.Publish(topic, body)
+}
+
+// CheckUnionKey CheckUnionKey
+func (s *Service) CheckUnionKey(id string) bool {
+
+	_, err := s.Redis.Get(ctx, "DELAY_KEY_"+id).Result()
+
+	if err == redis.Nil {
+		return false
+	}
+
+	if err != nil {
+		return false
+	}
+
+	return true
+}
+
+// SetUnionKey SetUnionKey
+func (s *Service) SetUnionKey(id string) bool {
+	err := s.Redis.Set(ctx, "DELAY_KEY_"+id, "value", time.Duration(myconfig.Case.Application.KeyExpiration)*time.Second).Err()
+	if err != nil {
+		panic(err)
+	}
+
+	return true
 }
 
 // DeferredPublish DeferredPublish

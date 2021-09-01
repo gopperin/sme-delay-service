@@ -6,6 +6,7 @@
 package wire
 
 import (
+	"github.com/go-redis/redis/v8"
 	"github.com/nsqio/go-nsq"
 	"sme-delay-service/internal/domain/base"
 	"sme-delay-service/internal/domain/delay"
@@ -21,8 +22,8 @@ func InitBaseAPI() base.API {
 }
 
 // InitDelayAPI init base api wire
-func InitDelayAPI(p *nsq.Producer) delay.API {
-	service := delay.ProvideService(p)
+func InitDelayAPI(p *nsq.Producer, redis2 *redis.Client) delay.API {
+	service := delay.ProvideService(p, redis2)
 	api := delay.ProvideAPI(service)
 	return api
 }

@@ -39,7 +39,15 @@ func (a *API) Send(c *gin.Context) {
 		return
 	}
 
+	if a.Service.CheckUnionKey(msg.ID) {
+		c.JSON(http.StatusOK, gin.H{"code": http.StatusInternalServerError, "msg": "消息已经发送"})
+		return
+	}
+
 	a.Service.DeferredPublish("sme-delay-service", time.Duration(msg.Delay)*time.Second, body)
+
+	a.Service.SetUnionKey(msg.ID)
+
 	c.JSON(http.StatusOK, gin.H{"code": 200, "msg": "发送成功", "data": msg})
 }
 

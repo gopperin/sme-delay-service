@@ -14,4 +14,6 @@ type Configs struct {
 	CORS CORS `mapstructure:"cors" json:"cors" yaml:"cors"`
 
 	Nsq Nsq `mapstructure:"nsq" json:"nsq" yaml:"nsq"`
+
+	Redis Redis `mapstructure:"redis" json:"redis" yaml:"redis"`
 }

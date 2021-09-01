@@ -51,6 +51,14 @@ func run() {
 		logrus.Println("InitProducer error", err.Error())
 		return
 	}
+	logrus.Println("InitProducer success")
+
+	redis, err := InitRedis()
+	if err != nil {
+		logrus.Println("InitRedis error", err.Error())
+		return
+	}
+	logrus.Println("InitRedis success")
 
 	logrus.Info("sme-delay-service start on:", myconfig.Case.Application.Port)
 
@@ -58,7 +66,7 @@ func run() {
 	myrouter.SetupBaseRouter(router)
 
 	/* product base */
-	myrouter.SetupDelayRouter(router, producer)
+	myrouter.SetupDelayRouter(router, producer, redis)
 
 	server := &http.Server{
 		Addr:         ":" + myconfig.Case.Application.Port,
