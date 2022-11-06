@@ -22,6 +22,6 @@ var (
 )
 
 func run() error {
-	fmt.Println("v2021.07.04")
+	fmt.Println("v2022.11.06")
 	return nil
 }

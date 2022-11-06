@@ -5,7 +5,7 @@ import (
 
 	"github.com/go-redis/redis/v8"
 
-	myconfig "sme-delay-service/internal/config"
+	myconfig "github.com/gopperin/sme-delay-service/internal/config"
 )
 
 var ctx = context.Background()

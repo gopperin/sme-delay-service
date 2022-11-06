@@ -3,7 +3,7 @@ package api
 import (
 	nsq "github.com/nsqio/go-nsq"
 
-	myconfig "sme-delay-service/internal/config"
+	myconfig "github.com/gopperin/sme-delay-service/internal/config"
 )
 
 // InitProducer InitProducer

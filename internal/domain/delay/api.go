@@ -10,7 +10,7 @@ import (
 
 	"github.com/gin-gonic/gin"
 
-	"sme-delay-service/internal/domain/types"
+	"github.com/gopperin/sme-delay-service/internal/domain/types"
 )
 
 // API API

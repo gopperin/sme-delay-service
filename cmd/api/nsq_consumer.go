@@ -6,8 +6,8 @@ import (
 
 	nsq "github.com/nsqio/go-nsq"
 
-	myconfig "sme-delay-service/internal/config"
-	"sme-delay-service/internal/domain/delay"
+	myconfig "github.com/gopperin/sme-delay-service/internal/config"
+	"github.com/gopperin/sme-delay-service/internal/domain/delay"
 )
 
 var nsqConfig *nsq.Config

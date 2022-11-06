@@ -1,7 +1,7 @@
 package main
 
 import (
-	"sme-delay-service/cmd"
+	"github.com/gopperin/sme-delay-service/cmd"
 )
 
 func main() {

@@ -8,8 +8,8 @@ import (
 	"github.com/google/wire"
 	nsq "github.com/nsqio/go-nsq"
 
-	"sme-delay-service/internal/domain/base"
-	"sme-delay-service/internal/domain/delay"
+	"github.com/gopperin/sme-delay-service/internal/domain/base"
+	"github.com/gopperin/sme-delay-service/internal/domain/delay"
 )
 
 // InitBaseAPI init base api wire

@@ -3,7 +3,7 @@ package router
 import (
 	"github.com/gin-gonic/gin"
 
-	mywire "sme-delay-service/internal/wire"
+	mywire "github.com/gopperin/sme-delay-service/internal/wire"
 )
 
 // SetupBaseRouter SetupBaseRouter

@@ -9,9 +9,8 @@ import (
 	"github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"
 
-	myconfig "sme-delay-service/internal/config"
-	mymiddleware "sme-delay-service/internal/middleware"
-	myrouter "sme-delay-service/internal/router"
+	myconfig "github.com/gopperin/sme-delay-service/internal/config"
+	myrouter "github.com/gopperin/sme-delay-service/internal/router"
 )
 
 // StartCmd api
@@ -41,8 +40,6 @@ func setup() {
 func run() {
 
 	router := gin.Default()
-
-	router.Use(mymiddleware.Cors())
 
 	MakeConsumer("sme-delay-service", "ch", nsqConfig, HandleDelayMessage)
 

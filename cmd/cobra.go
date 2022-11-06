@@ -8,8 +8,8 @@ import (
 	"github.com/fatih/color"
 	"github.com/spf13/cobra"
 
-	"sme-delay-service/cmd/api"
-	"sme-delay-service/cmd/version"
+	"github.com/gopperin/sme-delay-service/cmd/api"
+	"github.com/gopperin/sme-delay-service/cmd/version"
 )
 
 var rootCmd = &cobra.Command{
@@ -35,9 +35,9 @@ var rootCmd = &cobra.Command{
 
 func tip() {
 	strUp := `
-	+-+-+-+-+-+-+-+ +-+-+-+-+-+-+-+-+-+-+-+-+
-	|w|e|l|c|o|m|e| |s|m|e|-|s|c|a|f|f|o|l|d|
-	+-+-+-+-+-+-+-+ +-+-+-+-+-+-+-+-+-+-+-+-+`
+	+-+-+-+-+-+-+-+ +-+-+-+-+-+-+-+-+-+
+	|w|e|l|c|o|m|e| |s|m|e|-|d|e|l|a|y|
+	+-+-+-+-+-+-+-+ +-+-+-+-+-+-+-+-+-+`
 	strDown := `	├── cobra
 	├── viper
 	├── wire

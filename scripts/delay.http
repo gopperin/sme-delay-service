@@ -10,19 +10,19 @@
 # callback 回调地址
 # body 回调正文，json字符串
 # 返回：
-POST http://127.0.0.1:12900/api/v1/delay/send
+POST http://127.0.0.1:12900/v1/delay/send
 Content-Type: application/json;charset=utf-8
 
 {
-    "id": "kdfjkajdkfasf001",
+    "id": "kdfjkajdkfasf002",
     "delay": 10,
-    "callback": "http://127.0.0.1:12900/api/v1/delay/callback",
+    "callback": "http://127.0.0.1:12900/v1/delay/callback",
     "uuid": "djdkfjdk"
 }
 
 ### send
 # 返回：
-POST http://127.0.0.1:12900/api/v1/delay/callback
+POST http://127.0.0.1:12900/v1/delay/callback
 Content-Type: application/json;charset=utf-8
 
 {

@@ -12,8 +12,8 @@ import (
 	nsq "github.com/nsqio/go-nsq"
 	logrus "github.com/sirupsen/logrus"
 
-	myconfig "sme-delay-service/internal/config"
-	"sme-delay-service/internal/domain/types"
+	myconfig "github.com/gopperin/sme-delay-service/internal/config"
+	"github.com/gopperin/sme-delay-service/internal/domain/types"
 )
 
 var ctx = context.Background()
